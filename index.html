@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Registration Form</title>
+    <link rel="stylesheet" href="styles.css">  <!-- Ensure this path is correct -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Registration Form</h1>
+        <form id="registrationForm" method="POST" action="process.php">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="radio-group">
+                    <div>
+                        <input type="radio" id="genderFemale" name="gender" value="Female" required>
+                        <label for="genderFemale">Female</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="genderMale" name="gender" value="Male" required>
+                        <label for="genderMale">Male</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="genderOther" name="gender" value="Other" required>
+                        <label for="genderOther">Other</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        // Set maximum date for DOB to December 31, 2024
+        const dobInput = document.getElementById('dob');
+        const maxDate = '2024-12-31';
+        dobInput.setAttribute('max', maxDate);
+
+        // Validate Phone Number Length and DOB on Form Submit
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            // Validate phone number
+            const phoneInput = document.getElementById('phone').value;
+            if (phoneInput.length !== 10) {
+                event.preventDefault(); // Prevent form submission
+                alert('Please enter a valid phone number.');
+            }
+
+            // Validate DOB
+            const dobValue = dobInput.value;
+            if (new Date(dobValue) > new Date(maxDate)) {
+                event.preventDefault(); // Prevent form submission
+                alert('Date of Birth cannot be beyond December 31, 2024.');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+/* General Reset and Font */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to the top to allow scrolling */
+    min-height: 100vh; /* Ensure it takes at least the full height of the viewport */
+    padding: 10px; /* Add some padding for smaller screens */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.form-container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    overflow: auto; /* Allow scrolling inside the form if needed */
+}
+
+/* Form Heading */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+    
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Radio Button Group */
+.radio-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.radio-group div {
+    display: flex;
+    align-items: center;
+}
+
+.radio-group input[type="radio"] {
+    margin: 0;
+}
+
+.radio-group label {
+    margin-left: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Submit Button */
+input[type="submit"] {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+    width: 100%; /* Full-width button for consistency */
+}
+
+input[type="submit"]:hover {
+    background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-height: 600px) {
+    .form-container {
+        margin-top: 20px; /* Add space at the top */
+        height: auto; /* Allow it to grow as needed */
+        overflow-y: auto; /* Ensure scrolling inside the container */
+    }
+}
